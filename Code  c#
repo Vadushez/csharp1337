@@ -1,0 +1,176 @@
+using System;
+
+abstract class Ishape {
+  public static int getParCount(){
+    return 0;
+  }
+  public abstract double getArea();
+}
+
+class Rect:Ishape{
+  public static
+  int getParCount(){
+    return 2;
+  }
+  public override double getArea(){
+  return a*b;
+  }
+  private double a,b;
+  public Rect(double [] p){
+   a=p[0];
+   b=p[0];
+ 
+  }
+}
+class Square:Rect{
+  public static
+  int getParCount(){
+    return 1;
+  }
+   public override double getArea(){
+  return base.getArea();
+  }
+  private double a;
+  public Square(double [] p):base(new double [] {p[0],p[0]}){
+   
+  } 
+}
+class Triangle:Ishape{
+  public  static
+  int getParCount(){
+    return 3;
+  }
+  public override double  getArea(){
+    p=a+b+c;
+    ph=p/2;
+    return Math.Sqrt(ph*(ph-a)*(ph-b)*(ph-c));
+  }
+  private double a,b,c,p,ph;
+  public Triangle(double [] p){
+    a=p[0];
+    b=p[1];
+    c=p[2];
+  }
+}
+
+class Circle:Ishape{
+  public  static
+  int getParCount(){
+    return 1;
+  }
+  public override double getArea(){
+    return r*r*3.14;
+  }
+  private double r;
+  public Circle(double [] p){
+    r=p[0];
+  }
+}
+class Hexagon:Ishape{
+  private Triangle t;
+  public  static
+  int getParCount(){
+    return 1;
+  }
+   public override double getArea(){
+  return 6*t.getArea();
+  }
+    public Hexagon(double [] p){
+      t = new Triangle(new double[] {p[0], p[0], p[0]});
+  }
+}
+
+class MainClass {
+  public static void Main (string[] args){
+    double [] p;
+
+  Console.WriteLine("(o^▽^o) Вас приветствует калькулятор площадей (o^▽^o)");
+  Console.WriteLine("(◕‿◕) Выберите фигуру (◕‿◕)");
+  Console.WriteLine("Треугольник-нажмите 1\n Прямоугольник-нажмите 2\n Квадрат-нажмите 3\n Круг-нажмите 4\n Шестиугольник-нажмите 5");
+  int k;
+  int cmd=0;
+  k=Console.Read();
+   if (k=='1'){
+   cmd=Triangle.getParCount();
+   Console.WriteLine("Loading… [][][][][][][][][][] 0%/n Loading… █[][][][][][][][][] 10%/n Loading… ██[][][][][][][][] 20%/n Loading… ███[][][][][][][] 30%/n Loading… ████[][][][][][] 40%/nLoading… █████[][][][][] 50%/n Loading… ██████[][][][] 60%/n Loading… ███████[][][] 70%/n Loading… ████████[][] 80%/n Loading… █████████[] 90%/n Loading… ██████████ 100% /n");
+        p=new double [cmd];
+       Console.WriteLine("ヽ(ー_ー )ノВВОДИТЕ ЧИСЛОヽ(ー_ー )ノ");
+    for (int i=0;i<cmd;i++){
+      if (i>0){
+      Console.WriteLine("Вводите еще=)");
+      }
+        p[i]=Convert.ToDouble(Console.ReadLine());
+      }
+     
+      Ishape s=new Triangle(p);
+      Console.WriteLine("ОАОАОАОА ААА ВОТ И ПЛОЩААААААДЬ");
+      Console.WriteLine(s.getArea());
+   }
+   else if (k=='2'){
+     cmd=Rect.getParCount();
+      Console.WriteLine("Loading… [][][][][][][][][][] 0%/n Loading… █[][][][][][][][][] 10%/n Loading… ██[][][][][][][][] 20%/n Loading… ███[][][][][][][] 30%/n Loading… ████[][][][][][] 40%/nLoading… █████[][][][][] 50%/n Loading… ██████[][][][] 60%/n Loading… ███████[][][] 70%/n Loading… ████████[][] 80%/n Loading… █████████[] 90%/n Loading… ██████████ 100% /n");
+           p=new double [cmd];
+       Console.WriteLine("ヽ(ー_ー )ノВВОДИТЕ ЧИСЛОヽ(ー_ー )ノ");
+    for (int i=0;i<cmd;i++){
+      if (i>0){
+      Console.WriteLine("Вводите еще=)");
+      }
+        p[i]=Convert.ToDouble(Console.ReadLine());
+      }
+      
+      Ishape s=new Rect(p);
+      Console.WriteLine("ОАОАОАОА ААА ВОТ И ПЛОЩААААААДЬ");
+      Console.WriteLine(s.getArea());
+    }
+    else if (k=='3'){
+      cmd=Square.getParCount();
+       Console.WriteLine("Loading… [][][][][][][][][][] 0%/n Loading… █[][][][][][][][][] 10%/n Loading… ██[][][][][][][][] 20%/n Loading… ███[][][][][][][] 30%/n Loading… ████[][][][][][] 40%/nLoading… █████[][][][][] 50%/n Loading… ██████[][][][] 60%/n Loading… ███████[][][] 70%/n Loading… ████████[][] 80%/n Loading… █████████[] 90%/n Loading… ██████████ 100% /n");
+          p=new double [cmd];
+       Console.WriteLine("ヽ(ー_ー )ノВВОДИТЕ ЧИСЛОヽ(ー_ー )ノ");
+    for (int i=0;i<cmd;i++){
+      if (i>0){
+      Console.WriteLine("Вводите еще=)");
+      }
+        p[i]=Convert.ToDouble(Console.ReadLine());
+      }
+     
+      Ishape s=new Square(p);
+      Console.WriteLine("ОАОАОАОА ААА ВОТ И ПЛОЩААААААДЬ");
+      Console.WriteLine(s.getArea());
+   }
+    else if (k=='4'){
+      cmd=Circle.getParCount();
+       Console.WriteLine("Loading… [][][][][][][][][][] 0%/n Loading… █[][][][][][][][][] 10%/n Loading… ██[][][][][][][][] 20%/n Loading… ███[][][][][][][] 30%/n Loading… ████[][][][][][] 40%/nLoading… █████[][][][][] 50%/n Loading… ██████[][][][] 60%/n Loading… ███████[][][] 70%/n Loading… ████████[][] 80%/n Loading… █████████[] 90%/n Loading… ██████████ 100% /n");
+       p=new double [cmd];
+       Console.WriteLine("ヽ(ー_ー )ノВВОДИТЕ ЧИСЛОヽ(ー_ー )ノ");
+    for (int i=0;i<cmd;i++){
+      if (i>0){
+      Console.WriteLine("Вводите еще=)");
+      }
+        p[i]=Convert.ToDouble(Console.ReadLine());
+      }
+      
+      Ishape s=new Circle(p);
+      Console.WriteLine("ОАОАОАОА ААА ВОТ И ПЛОЩААААААДЬ");
+      Console.WriteLine(s.getArea());
+    }
+    else if (k=='5'){
+      cmd=Hexagon.getParCount();
+       Console.WriteLine("Loading… [][][][][][][][][][] 0%/n Loading… █[][][][][][][][][] 10%/n Loading… ██[][][][][][][][] 20%/n Loading… ███[][][][][][][] 30%/n Loading… ████[][][][][][] 40%/nLoading… █████[][][][][] 50%/n Loading… ██████[][][][] 60%/n Loading… ███████[][][] 70%/n Loading… ████████[][] 80%/n Loading… █████████[] 90%/n Loading… ██████████ 100% /n");
+       p=new double [cmd];
+       Console.WriteLine("ヽ(ー_ー )ノВВОДИТЕ ЧИСЛОヽ(ー_ー )ノ");
+    for (int i=0;i<cmd;i++){
+      if (i>0){
+      Console.WriteLine("Вводите еще=)");
+      }
+        p[i]=Convert.ToDouble(Console.ReadLine());
+        
+      }
+      
+      Ishape s=new Hexagon(p);
+      Console.WriteLine("ОАОАОАОА ААА ВОТ И ПЛОЩААААААДЬ");
+      Console.WriteLine(s.getArea());
+    }
+    
+  }
+}
